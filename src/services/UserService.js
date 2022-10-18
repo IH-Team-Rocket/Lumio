@@ -4,4 +4,4 @@ const http = createHttp(true)
 
 export const getCurrentUser = () => http.get('/users/profile');
 
-export const createUser = (body) => http.post('/user', body);
+export const createUser = (body) => http.post('/users', body);
