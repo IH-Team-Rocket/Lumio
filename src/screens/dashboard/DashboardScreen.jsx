@@ -1,16 +1,18 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
+import Sidebar from '../../components/sidebar/Sidebar';
 
 const DashboardScreen = () => {
   return (
     <div>
+      <h1>HOLAHOLA</h1>
       <Sidebar/>
-      <Routes>
+      {/* <Routes>
         <Route path="/dashboard" element={}/>
         <Route path="/billing" element={}/>
         <Route path="/market" element={}/>
         <Route path="/user" element={}/>
-      </Routes>
+      </Routes> */}
     </div>
   );
 };
