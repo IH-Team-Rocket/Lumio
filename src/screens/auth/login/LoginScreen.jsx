@@ -26,7 +26,7 @@ function Login() {
     validateOnChange: false,
   })
   
-  function onSubmit(values) { // Lo declaro como function en vez de const, porque asi por el hoisting la puedo usar en el useFormik
+  function onSubmit(values) {
     userLogin(values)
       .then(({ accessToken }) => {
         login(accessToken)
@@ -41,7 +41,7 @@ function Login() {
     <div className="Login container">
       <h1>Login</h1>
 
-      <form onSubmit={handleSubmit}> {/* Si el onSubmit esta en el form, se puede hacer submit con el Enter o con un button de type submit(valor por defecto) */}
+      <form onSubmit={handleSubmit}> 
 
         <Input
           label="Email"

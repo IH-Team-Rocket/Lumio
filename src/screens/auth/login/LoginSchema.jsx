@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import ERRORS from '../../constants/formErrors';
+import ERRORS from '../../../constants/formErrors';
 
 const LoginSchema = Yup.object().shape({
   email: Yup
