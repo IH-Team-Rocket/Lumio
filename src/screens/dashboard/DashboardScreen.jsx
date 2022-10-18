@@ -5,6 +5,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 const DashboardScreen = () => {
   return (
     <div>
+      <h1>HOLAHOLA</h1>
       <Sidebar/>
       {/* <Routes>
         <Route path="/dashboard" element={}/>
