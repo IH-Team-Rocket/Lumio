@@ -12,6 +12,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    align-content: center;
     height: 100%;
 }
 
@@ -25,10 +26,10 @@
     list-style: none;
 }
 
-a {
+.buttons a {
     color: white;
     text-decoration: none;
-    
+
     &:visited {
         color: white
     }

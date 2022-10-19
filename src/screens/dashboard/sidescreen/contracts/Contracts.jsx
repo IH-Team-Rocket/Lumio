@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getContracts } from '../../../../services/ContractService';
+import './Contracts.scss'
 
 const Contracts = () => {
     const [ contracts, setContracts ] = useState([])
@@ -14,9 +16,14 @@ const Contracts = () => {
 
     return (
         <div>
-                {contracts.map((contract) => (
-                    <p key={contract.id}>{contract.price}</p>
-                ))}
+            {contracts.map((contract) => (
+                <Link key={contract.id} to={`/contracts/${contract.id}`} className="contractCard">
+                    <div>
+                    <h2>{contract.location.street} {contract.location.streetNumber}</h2>
+                    {console.log(contract)}
+                    </div>
+                </Link>
+            ))}
         </div>
     );
 };
