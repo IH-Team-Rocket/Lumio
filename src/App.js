@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/register" element={<LoggedRoute><RegisterScreen/></LoggedRoute>}/>
         <Route path="/login" element={<LoggedRoute><LoginScreen/></LoggedRoute>}/>
-        <Route path="/" element={
+        <Route path="/*" element={
           <ProtectedRoute>
             <DashboardScreen/>
           </ProtectedRoute>

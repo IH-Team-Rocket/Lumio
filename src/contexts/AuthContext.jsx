@@ -20,14 +20,10 @@ export const AuthContextProvider = ({ children }) => {
     getCurrentUser()
       .then(user => {
         setUser(user)
-
-        // cb && cb() Callback por si queremos hacer algo justo al traernos el usuario
       })
   }
 
   useEffect(() => {
-    // Si existe token, me traigo al usuario
-
     if (getAccessToken()) {
       if (!verifyJWT(getAccessToken())) {
         logout()
