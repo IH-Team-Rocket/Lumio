@@ -12,15 +12,18 @@ const DashboardScreen = () => {
       <div className="sidebar">
         <Sidebar/>
       </div>
-      <Routes>
-        {/* <Route path="/dashboard" element={}/>
-        <Route path="/billing" element={}/>
-        <Route path="/market" element={}/> */}
-        <Route path="/contracts" element={<Contracts/>}/>
-        <Route path="/contracts/:id" element={<ContractDetails/>}/>
-        <Route path="/user" element={<User/>}/>
-       {/*  <Route path="/*" element={<h1>Wrong URL</h1>}/> */}
-      </Routes>
+      <div className='sidescreen'>
+        <TopBar/>
+        <Routes>
+          {/* <Route path="/dashboard" element={}/>
+          <Route path="/billing" element={}/>
+          <Route path="/market" element={}/> */}
+          <Route path="/contracts" element={<Contracts/>}/>
+          <Route path="/contracts/:id" element={<ContractDetails/>}/>
+          <Route path="/user" element={<User/>}/>
+        {/*  <Route path="/*" element={<h1>Wrong URL</h1>}/> */}
+        </Routes>
+      </div>
     </div>
   );
 };
