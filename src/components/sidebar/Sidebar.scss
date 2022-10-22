@@ -1,42 +1,57 @@
 .container {
-   background-color: orange;
-   display: flex;
-   flex-direction: column;
-   height: 100%;
-   border-radius: 10px;
-   overflow: hidden;
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .buttons {
-    background-color: red;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-content: center;
-    height: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-content: center;
+  height: 100%;
 }
 
 .dashboardButtons{
-    background-color: blue;
-    list-style: none;
+  background-color: blue;
+  list-style: none;
+	margin-top: 30px;
+	padding: 0 30px
 }
 
 .userButtons {
-    background-color: green;
-    list-style: none;
+  background-color: green;
+  list-style: none;
+	padding: 0 30px
 }
 
 .buttons a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 
-    &:visited {
-        color: white
-    }
-    &:hover {
-        color: white
-    }
-    &:active {
-        color: white
-    }
+  &:visited {
+    color: white
+  }
+  &:hover {
+    color: white
+  }
+  &:active {
+    color: white
+  }
 }
+
+.sidebar-button {
+  display: flex;
+  align-items: center;
+	margin-bottom: 20px;
+	font-size: 1.1rem;
+	font-weight: 600;
+		p{
+			margin: 0 10px;
+		}
+}
+

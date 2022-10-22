@@ -1,16 +1,16 @@
 import React from 'react';
 import './TopBar.scss'
-import { MdMenu } from 'react-icons/md';
-import { IconContext } from "react-icons";
+import { MdMenu, MdSettings, MdNotificationsNone, MdAccountCircle } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const TopBar = () => {
   return (
     <div className='top-bar'>
-      <button className='menu-toggle'><MdMenu /></button>
+      <div className='topbar-logo-container'><MdMenu  className='topbar-logo'/></div>
       <div className='utilities'>
-        <button className='settings'>boton</button>
-        <button className='notifications'>boton</button>
-        <button className='user'>boton</button>
+        <div className='topbar-logo-container'><MdSettings  className='topbar-logo'/></div>
+        <div className='topbar-logo-container notifications'><MdNotificationsNone  className='topbar-logo'/></div>
+        <div className='topbar-logo-container'><Link to={"/user"}><MdAccountCircle className='topbar-logo'/></Link></div>
       </div>  
     </div>
   );
