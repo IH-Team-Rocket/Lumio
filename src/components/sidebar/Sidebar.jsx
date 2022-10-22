@@ -18,7 +18,7 @@ const Sidebar = () => {
         </ul>
         <ul className="userButtons">
           <li><SidebarButton route={"/user"}>User</SidebarButton></li>
-          <li><a onClick={handleLogOut}>Logout</a></li>
+          <li><a href='null' onClick={handleLogOut}>Logout</a></li>
         </ul>
       </div>
     </aside>

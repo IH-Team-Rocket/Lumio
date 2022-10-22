@@ -1,0 +1,22 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0px 18px;
+  padding: 0 20px
+}
+
+.menu-toggle {
+  border: none; 
+  background-color: aqua;
+  height: 100px;
+  width: 100px;
+  
+}
+
+.utilities {
+  display: flex;
+}
+
+.notifications {
+  margin: 0 20px
+}

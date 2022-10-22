@@ -5,14 +5,15 @@ import User from './sidescreen/user/User';
 import './DashboardScreen.scss'
 import Contracts from './sidescreen/contracts/Contracts';
 import ContractDetails from './sidescreen/contracts/ContractDetails';
+import TopBar from '../../components/topbar/TopBar';
 
 const DashboardScreen = () => {
   return (
     <div className="dashboardContainer">
-      <div className="sidebar">
+      <div className="sidebar off-screen">
         <Sidebar/>
       </div>
-      <div className='sidescreen'>
+      <div className='sidescreen full-width'>
         <TopBar/>
         <Routes>
           {/* <Route path="/dashboard" element={}/>
