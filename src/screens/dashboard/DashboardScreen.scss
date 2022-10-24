@@ -52,3 +52,18 @@ $sidebar-width: 300px;
     height: 82vh;
     overflow-y: scroll;
 }
+
+.sidescreen-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-icon {
+    color: #3d3d3d;
+    width: 26px;
+    height: 26px;
+      &:hover{
+        width: 30px;
+        height: 30px;
+      }
+  }
