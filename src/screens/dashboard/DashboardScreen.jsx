@@ -7,11 +7,14 @@ import Contracts from './sidescreen/contracts/Contracts';
 import ContractDetails from './sidescreen/contracts/ContractDetails';
 import TopBar from '../../components/topbar/TopBar';
 import Market from './sidescreen/market/Market';
+import { useSidebarContext } from '../../contexts/SidebarContext';
 
 const DashboardScreen = () => {
+   const { isSidebarOpen } = useSidebarContext();
+
   return (
     <div className="dashboardContainer">
-      <div className="sidebar off-screen">
+      <div id="sidebar" className={`sidebar ${isSidebarOpen ? '' : 'off-screen'}`}>
         <Sidebar/>
       </div>
       <div className='sidescreen full-width'>
