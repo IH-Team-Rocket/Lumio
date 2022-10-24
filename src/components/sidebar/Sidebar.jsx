@@ -10,7 +10,9 @@ const Sidebar = () => {
 
   return (
     <aside className="container">
-      <h1>Lumio</h1>
+      <div className='logo-container'>
+        <img className='dashboard-logo' src='https://lumio.solar/wp-content/uploads/2021/02/Recurso-2@2x.png' alt='Lumio Logo'/>
+      </div>
       <div className="buttons">
         <ul className="dashboardButtons">
           <li><SidebarButton route={"/"}><div className='sidebar-button'><MdSpaceDashboard/><p>Dashboard</p></div></SidebarButton></li>
@@ -19,7 +21,7 @@ const Sidebar = () => {
           <li><SidebarButton route={"/market"}><div className='sidebar-button'><BsArrowLeftRight/><p>Market</p></div></SidebarButton></li>
         </ul>
         <ul className="userButtons">
-          <li><a href='null' onClick={handleLogOut}><div className='sidebar-button'><MdLogout/>Logout</div></a></li>
+          <li><a href='null' onClick={handleLogOut}><div className='sidebar-button'><MdLogout/><p>Logout</p></div></a></li>
         </ul>
       </div>
     </aside>

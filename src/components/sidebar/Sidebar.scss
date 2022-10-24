@@ -1,14 +1,27 @@
 .container {
-  background-color: orange;
+  background-color: white;
   display: flex;
   flex-direction: column;
   height: 100%;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+
+}
+
+.logo-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0 0;
+  margin-bottom: 20px;
+}
+
+.dashboard-logo {
+  width: 60%;
 }
 
 .buttons {
-  background-color: red;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -17,30 +30,28 @@
 }
 
 .dashboardButtons{
-  background-color: blue;
   list-style: none;
 	margin-top: 30px;
 	padding: 0 30px
 }
 
 .userButtons {
-  background-color: green;
   list-style: none;
 	padding: 0 30px
 }
 
 .buttons a {
-  color: white;
+  color: #3d3d3d;
   text-decoration: none;
 
   &:visited {
-    color: white
+    color: #3d3d3d
   }
   &:hover {
-    color: white
+    color: #3d3d3d
   }
   &:active {
-    color: white
+    color: #3d3d3d
   }
 }
 
@@ -48,8 +59,8 @@
   display: flex;
   align-items: center;
 	margin-bottom: 20px;
-	font-size: 1.1rem;
-	font-weight: 600;
+	font-size: 1.2rem;
+	font-weight: 500;
 		p{
 			margin: 0 10px;
 		}
