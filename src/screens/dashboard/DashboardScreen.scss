@@ -6,6 +6,7 @@ $sidebar-width: 300px;
 }
 
 #sidebar {
+    z-index: 1;
     border-radius: none;
     position: absolute;
     top: 0;

@@ -41,7 +41,7 @@ const Dashboard = () => {
 
   return data[1] ? (
     <div className="power-used-chart">
-    <h1>YOLO</h1>
+    <h2 className='dashboard-title'>Dashboard</h2>
       <button onClick={handleYearly}>Yearly</button>
       <button onClick={handleTotal}>Total</button>
       <DashboardChart 
