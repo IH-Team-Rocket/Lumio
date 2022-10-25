@@ -4,7 +4,6 @@ import { getCurrentUser } from '../../../../services/UserService';
 
 const User = () => {
     const [ user, setUser ] = useState({})
-    const { id } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {

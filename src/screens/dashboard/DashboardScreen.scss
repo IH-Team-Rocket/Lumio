@@ -1,0 +1,60 @@
+$sidebar-width: 300px;
+
+.full-width{
+    width: 100%;
+    margin-left: 0;
+}
+
+#sidebar {
+    border-radius: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $sidebar-width;
+    height: 100%;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    transition: all .7s ease-in-out;
+
+    &.off-screen {
+        left: -$sidebar-width;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .dashboardContainer {
+        height: 100vh;
+        background-color:#F3F4F6;
+    }
+    
+    #sidebar {
+        left: 0;
+
+        &.off-screen {
+            left: 0;
+        }
+    }
+    
+    .sidescreen {
+        margin-left: $sidebar-width;
+        width: calc(100% - $sidebar-width);
+        height: 100%;
+        padding: 25px 16px 0px;
+        box-sizing: border-box;
+        transition: all .7s ease-in-out;
+    
+        &.full-width {
+            border-radius: none;
+        }
+    }
+
+    .dashboard-title {
+        margin: 0 20px 20px;
+    }
+    
+    .sidescreen-content {
+        height: 82vh;
+        overflow-y: scroll;
+    }
+}
+
