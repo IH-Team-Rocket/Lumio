@@ -1,19 +1,33 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 
-const DashboardChart = (propData, xName, chartType, width) => { 
-  console.log('this is propData:', propData);
-  const series = propData.map(bill => {
-    return  {
-      name: bill.id,
-      data: {...bill}
-    }
-  });
+const DashboardChart = (props) => { 
+  
+  /* const series = [
+    name: 
+    data {propData.data.map(bill => {
+    return bill.powerUsed
+  })}] */
 
+  /* const series = propData.data.map(bill =>{
+      console.log(bill);
+      return {
+        name: bill.createdAt,
+        data: bill.powerUsed
+      }
+    }
+  ) */
+
+  const series = [{
+    name: "Power used",
+    data: props.data
+  }]
+
+  console.log('series', series);
   const options = {
-    chart: { id: chartType},
+    chart: { id: props.chartType},
     xaxis: {
-      categories: xName
+      categories: props.xName
     }
   }
 
@@ -22,8 +36,8 @@ const DashboardChart = (propData, xName, chartType, width) => {
       <Chart 
         options={options}
         series={series}
-        type={chartType}
-        width={width}
+        type={props.chartType}
+        width={props.width}
       />
     </div>
   );
