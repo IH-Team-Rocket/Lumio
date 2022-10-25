@@ -6,6 +6,7 @@ import LoginScreen from './screens/auth/login/LoginScreen';
 import DashboardScreen from './screens/dashboard/DashboardScreen';
 import ProtectedRoute from "./components/misc/ProtectedRoute";
 import LoggedRoute from './components/misc/LoggedRoute';
+import ApexCharts from "apexcharts";
 
 function App() {
   // const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();

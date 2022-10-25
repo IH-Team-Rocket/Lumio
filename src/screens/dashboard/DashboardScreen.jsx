@@ -8,6 +8,7 @@ import ContractDetails from './sidescreen/contracts/ContractDetails';
 import TopBar from '../../components/topbar/TopBar';
 import Market from './sidescreen/market/Market';
 import { useSidebarContext } from '../../contexts/SidebarContext';
+import Dashboard from './sidescreen/dashboard/Dashboard';
 
 const DashboardScreen = () => {
    const { isSidebarOpen } = useSidebarContext();
@@ -21,8 +22,8 @@ const DashboardScreen = () => {
         <TopBar/>
         <div className='sidescreen-content'>
           <Routes>
-            {/* <Route path="/dashboard" element={}/>
-            <Route path="/billing" element={}/> */}
+            <Route path="/" element={<Dashboard />}/>
+            {/* <Route path="/billing" element={}/> */}
             <Route path="/market" element={<Market />}/>
             <Route path="/contracts" element={<Contracts/>}/>
             <Route path="/contracts/:id" element={<ContractDetails/>}/>
