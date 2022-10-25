@@ -3,19 +3,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../../../components/misc/Input';
 import { createContract } from '../../../../services/ContractService';
-import { getCurrentUser } from '../../../../services/UserService';
 import ContractSchema from './ContractSchema';
-
-const currentUser = getCurrentUser()
 
 const INITIAL_VALUES = {
     location: {
         postalCode: undefined,
+        city: undefined,
         street: undefined,
         streetNumber: undefined,
     },
     price: undefined,
-    user: currentUser.id
 }
 
 function ContractCreate() {
@@ -30,10 +27,12 @@ function ContractCreate() {
     const navigate = useNavigate()
 
     function onSubmit(values) {
+        console.log('entro');
         createContract(values)
+        console.log('entro')
             .then(contract => {
                 console.log(contract);
-                navigate('/contract/id')
+                navigate(`/contracts/${contract.id}`)
             })
             .catch(err => {
                 console.log(err.response.data);
@@ -45,7 +44,7 @@ function ContractCreate() {
                     })
             })
             .finally(() => {
-                setSubmitting(false )
+                setSubmitting(false)
             })
     }
     return (
@@ -65,7 +64,18 @@ function ContractCreate() {
                     onBlur={handleBlur}
                 />
 
-                <Input 
+                <Input
+                    label="City"
+                    placeholder="Add your City"
+                    name="city"
+                    id="city"
+                    value={values.location.city}
+                    onChange={handleChange}
+                    error={errors.city}
+                    onBlur={handleBlur}
+                />
+
+                <Input
                     label="Street Name"
                     placeholder="Add Street Name"
                     name="street"
@@ -76,7 +86,8 @@ function ContractCreate() {
                     onBlur={handleBlur}
                 />
 
-                <Input 
+                <Input
+                    type='number'
                     label="Street Number"
                     placeholder="Add Street Number"
                     name="streetNumber"
@@ -87,7 +98,9 @@ function ContractCreate() {
                     onBlur={handleBlur}
                 />
 
-                <Input 
+                <Input
+                    type='number'
+                    step=".01"
                     label="Price"
                     placeholder="Add the price of kwh"
                     name="price"
@@ -98,7 +111,8 @@ function ContractCreate() {
                     onBlur={handleBlur}
                 />
 
-                <Input 
+                <Input
+                    type='number'
                     label="Solar Panels"
                     placeholder="Do you have solar panels?"
                     name="solarPanels"
@@ -109,7 +123,8 @@ function ContractCreate() {
                     onBlur={handleBlur}
                 />
 
-                <Input 
+                <Input
+                    type='number'
                     label="Power per Panel"
                     placeholder="Add kwh generated per panel"
                     name="powerPerPanel"
@@ -119,7 +134,7 @@ function ContractCreate() {
                     error={errors.powerPerPanel}
                     onBlur={handleBlur}
                 />
-                <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                <button type="submit" disabled={isSubmitting}>
                     {isSubmitting ? 'Loading' : 'Submit'}
                 </button>
             </form>

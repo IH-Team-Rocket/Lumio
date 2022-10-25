@@ -8,6 +8,10 @@ const ContractSchema = Yup.object().shape({
             .required(ERRORS.ERROR_REQUIRED)
             .min(5)
             .max(5),
+        city: Yup
+            .string()
+            .required(ERRORS.ERROR_REQUIRED)
+            .min(3),
         street: Yup
             .string()
             .required(ERRORS.ERROR_REQUIRED),
