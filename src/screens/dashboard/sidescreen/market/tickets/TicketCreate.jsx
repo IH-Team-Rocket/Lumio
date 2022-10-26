@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../../../../components/misc/Input';
-import { getContracts } from '../../../../../services/ContractService';
+import { getPanelContracts } from '../../../../../services/ContractService';
 import { createTicket } from '../../../../../services/TicketService';
 import { getCurrentUser } from '../../../../../services/UserService';
 import TicketSchema from './TicketSchema';
@@ -27,7 +27,7 @@ function TicketCreate() {
     useEffect(() => {
         getCurrentUser()
             .then(user => {
-                getContracts(user)
+                getPanelContracts(user)
                     .then(contracts => {
                         console.log(contracts);
                         return contracts.map(contract => {
@@ -79,10 +79,11 @@ function TicketCreate() {
                     onBlur={handleBlur}
                     onChange={handleChange}
                     id="select-contract"
+                    defaultValue={'default'}
                 >
-                    <option disabled selected>Choose you contract</option>
+                    <option value={'default'} disabled>Choose you contract</option>
                     {options?.map(option => {
-                        return <option value={option.value}> {option.name}</option>
+                        return <option key={option.value} value={option.value}> {option.name}</option>
                     })}
                 </select>
 
