@@ -29,7 +29,6 @@ function Register() {
   function onSubmit(values) {
     createUser(values)
       .then(user => {
-        console.log(user);
         navigate('/login', { state: {
           email: values.email
         } })

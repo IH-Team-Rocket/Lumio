@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getTickets } from '../../../../services/TicketService';
-import { Link } from 'react-router-dom';
 import Ticket from '../../../../components/ticket/Ticket';
 import { TbCirclePlus } from 'react-icons/tb'
 import "./Market.scss"
+import { Link } from 'react-router-dom';
 
 const Market = () => {
   const [ tickets, setTickets ] = useState([])
@@ -24,7 +24,6 @@ const Market = () => {
       </div>
       {tickets.map((ticket) => (
         <div  key={ticket.id}>
-          {console.log(ticket)}
           <Ticket ticket={ticket}/>
         </div>
             ))}

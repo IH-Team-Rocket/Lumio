@@ -9,23 +9,23 @@ import TopBar from '../../components/topbar/TopBar';
 import Market from './sidescreen/market/Market';
 import ContractCreate from './sidescreen/contracts/ContractCreate';
 import TicketCreate from './sidescreen/market/tickets/TicketCreate';
+import { useSidebarContext } from '../../contexts/SidebarContext';
+import Dashboard from './sidescreen/dashboard/Dashboard';
 
 const DashboardScreen = () => {
+   const { isSidebarOpen } = useSidebarContext();
+
   return (
     <div className="dashboardContainer">
-      <div className="sidebar off-screen">
+      <div id="sidebar" className={`sidebar ${isSidebarOpen ? '' : 'off-screen'}`}>
         <Sidebar/>
       </div>
       <div className='sidescreen full-width'>
         <TopBar/>
         <div className='sidescreen-content'>
           <Routes>
-
-            {/* <Route path="/dashboard" element={}/>
-            <Route path="/billing" element={}/> */}
-
-            {/* TICKETS */}
-
+            <Route path="/" element={<Dashboard />}/>
+            {/* <Route path="/billing" element={}/> */}
             <Route path="/market" element={<Market />}/>
             <Route path="/tickets/create" element={<TicketCreate/>}/>
 

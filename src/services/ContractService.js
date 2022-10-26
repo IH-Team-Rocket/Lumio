@@ -1,4 +1,3 @@
-import { HttpStatusCode } from 'axios';
 import createHttp from './BaseService';
 
 

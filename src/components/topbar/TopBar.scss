@@ -7,14 +7,24 @@
   height: 40px;
 }
 
+
 .menu-toggle {
-  border: none; 
-  background-color: aqua;
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .menu-toggle{
+    display: block;
+  }
 }
 
 .utilities {
   display: flex;
   align-items: center;
+  transition: all .7s ease-in-out;
+    &.sidebar-open {
+      display: none;
+    }
 }
 
 .notifications {
@@ -34,8 +44,18 @@
   color: #3d3d3d;
   width: 26px;
   height: 26px;
+  transition: all .7s ease-in-out;
     &:hover{
       width: 30px;
       height: 30px;
+    }
+}
+
+.menu-toggle {
+  position: absolute;
+  left: 0;
+  margin-left: 10px;
+    &.sidebar-open{
+      left: 300px
     }
 }
