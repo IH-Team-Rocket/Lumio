@@ -15,6 +15,8 @@ const Dashboard = () => {
 
   const [ data, setData ] = useState([])
   const [ chartFilter, setChartFilter ] = useState(-12)
+  
+  console.log(chartFilter);
   const handleTotal = () =>{
     setChartFilter(0)
   }
@@ -38,17 +40,29 @@ const Dashboard = () => {
     return toMonthName(bill.createdAt.split('-').slice(1,-1).toString())
   })
 
-  return data[1] ? (
-    <div className="power-used-chart">
-    <h1>YOLO</h1>
-      <button onClick={handleYearly}>Yearly</button>
-      <button onClick={handleTotal}>Total</button>
-      <DashboardChart 
-        data={powerUsed}
-        xName={month}
-        chartType="area"
-        width={500}
-      />
+  return data[0] ? (
+    <div className='dashboard-container'>
+      <h2 className='dashboard-title'>Dashboard</h2>
+      <div className='dashboard-content'>
+        <div className="power-used-chart">
+          <button onClick={handleYearly}>Yearly</button>
+          <button onClick={handleTotal}>Total</button>
+          <DashboardChart 
+            data={powerUsed}
+            xName={month}
+            chartType="area"
+          />
+        </div>
+        <div className="power-used-chart">
+          <button onClick={handleYearly}>Yearly</button>
+          <button onClick={handleTotal}>Total</button>
+          <DashboardChart 
+            data={powerUsed}
+            xName={month}
+            chartType="area"
+          />
+        </div>
+      </div>
     </div>) : (
       <p>Loading...</p>
   );
