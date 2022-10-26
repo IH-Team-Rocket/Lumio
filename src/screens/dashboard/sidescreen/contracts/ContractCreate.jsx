@@ -7,12 +7,12 @@ import ContractSchema from './ContractSchema';
 
 const INITIAL_VALUES = {
     location: {
-        postalCode: undefined,
-        city: undefined,
-        street: undefined,
-        streetNumber: undefined,
+        postalCode: '',
+        city: '',
+        street: '',
+        streetNumber: '',
     },
-    price: undefined,
+    price: '',
 }
 
 function ContractCreate() {
@@ -29,7 +29,6 @@ function ContractCreate() {
     function onSubmit(values) {
         console.log('entro');
         createContract(values)
-        console.log('entro')
             .then(contract => {
                 console.log(contract);
                 navigate(`/contracts/${contract.id}`)
@@ -53,66 +52,62 @@ function ContractCreate() {
 
             <form onSubmit={handleSubmit}>
                 <Input 
-                    type='number'
                     label="Postal Code"
                     placeholder="Add Postal Code"
-                    name="postalCode"
+                    name="location.postalCode"
                     id="postalCode"
                     value={values.location.postalCode}
                     onChange={handleChange}
-                    error={errors.postalCode}
+                    error={errors.location?.postalCode}
                     onBlur={handleBlur}
                 />
 
                 <Input
                     label="City"
                     placeholder="Add your City"
-                    name="city"
+                    name="location.city"
                     id="city"
                     value={values.location.city}
                     onChange={handleChange}
-                    error={errors.city}
+                    error={errors.location?.city}
                     onBlur={handleBlur}
                 />
 
                 <Input
                     label="Street Name"
                     placeholder="Add Street Name"
-                    name="street"
+                    name="location.street"
                     id="street"
                     value={values.location.street}
                     onChange={handleChange}
-                    error={errors.street}
+                    error={errors.location?.street}
                     onBlur={handleBlur}
                 />
 
                 <Input
-                    type='number'
                     label="Street Number"
                     placeholder="Add Street Number"
-                    name="streetNumber"
+                    name="location.streetNumber"
                     id="streetNumber"
                     value={values.location.streetNumber}
                     onChange={handleChange}
-                    error={errors.streetNumber}
+                    error={errors.location?.streetNumber}
                     onBlur={handleBlur}
                 />
 
                 <Input
-                    type='number'
                     step=".01"
                     label="Price"
                     placeholder="Add the price of kwh"
                     name="price"
                     id="price"
-                    value={values.location.price}
+                    value={values.price}
                     onChange={handleChange}
                     error={errors.price}
                     onBlur={handleBlur}
                 />
 
                 <Input
-                    type='number'
                     label="Solar Panels"
                     placeholder="Do you have solar panels?"
                     name="solarPanels"
@@ -124,7 +119,6 @@ function ContractCreate() {
                 />
 
                 <Input
-                    type='number'
                     label="Power per Panel"
                     placeholder="Add kwh generated per panel"
                     name="powerPerPanel"
