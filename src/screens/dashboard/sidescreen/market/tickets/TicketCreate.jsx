@@ -29,6 +29,7 @@ function TicketCreate() {
             .then(user => {
                 getContracts(user)
                     .then(contracts => {
+                        console.log(contracts);
                         return contracts.map(contract => {
                             return {
                                 value: contract.id,
@@ -79,6 +80,7 @@ function TicketCreate() {
                     onChange={handleChange}
                     id="select-contract"
                 >
+                    <option disabled selected>Choose you contract</option>
                     {options?.map(option => {
                         return <option value={option.value}> {option.name}</option>
                     })}
