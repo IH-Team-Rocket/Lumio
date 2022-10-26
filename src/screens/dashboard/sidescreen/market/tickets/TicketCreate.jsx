@@ -38,7 +38,11 @@ function TicketCreate() {
                         })
                     })
                     .then((e) => {
-                        setOptions(e)
+                        if(e.length > 1 ) {
+                            setOptions(e)
+                        }else {
+                            
+                        }
                     })
                     .catch(err => console.error(err))
             })
