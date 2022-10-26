@@ -1,3 +1,10 @@
+.dashboard-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .power-used-chart {
-  width: 500px;
+  width: 40%;
+  min-width: 300px;
 }
