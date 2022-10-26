@@ -15,6 +15,7 @@ const Dashboard = () => {
 
   const [ data, setData ] = useState([])
   const [ chartFilter, setChartFilter ] = useState(-12)
+  
   console.log(chartFilter);
   const handleTotal = () =>{
     setChartFilter(0)
