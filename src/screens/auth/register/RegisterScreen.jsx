@@ -51,7 +51,7 @@ function Register() {
     <div className="Signup container">
       <h1>Sign up</h1>
 
-      <form onSubmit={handleSubmit}> {/* Si el onSubmit esta en el form, se puede hacer submit con el Enter o con un button de type submit(valor por defecto) */}
+      <form onSubmit={handleSubmit}>
         <Input
           label="First name"
           placeholder="Add user first name"
@@ -60,7 +60,7 @@ function Register() {
           value={values.firstName}
           onChange={handleChange}
           error={errors.firstName}
-          onBlur={handleBlur} // Cuando dejas de hacer focus en un input
+          onBlur={handleBlur}
         />
 
         <Input
@@ -71,7 +71,7 @@ function Register() {
           value={values.lastName}
           onChange={handleChange}
           error={errors.lastName}
-          onBlur={handleBlur} // Cuando dejas de hacer focus en un input
+          onBlur={handleBlur}
         />
 
         <Input

@@ -26,26 +26,6 @@ const ContractDetails = () => {
             <p>{contract.powerPerPanel}</p>
             <p>{contract.user}</p>
             <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
-            <p>{contract.createdAt}</p>
         </div>
     ) : (
       <p>Loading...</p>

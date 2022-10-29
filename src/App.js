@@ -7,35 +7,6 @@ import ProtectedRoute from "./components/misc/ProtectedRoute";
 import LoggedRoute from './components/misc/LoggedRoute';
 
 function App() {
-  // const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();
-  // console.log(isSidebarOpen);
-  
-  // const handleAnywhereClick = (event) => {
-  //   const sidebarNode = document.querySelector('#sidebar');
-  //   console.log(isSidebarOpen);
-  //   if (isSidebarOpen && !isDescendant(sidebarNode, event.target) && event.target.id !== 'sidebar') {
-  //     console.log(event.target);
-  //     setIsSidebarOpen(false);
-  //   }
-  // };
-
-  // function isDescendant(parent, child) {
-  //   var node = child.parentNode;
-  //   while (node != null) {
-  //       if (node == parent) {
-  //           return true;
-  //       }
-  //       node = node.parentNode;
-  //   }
-  //   return false;
-  // }
-  // useEffect(() => {
-  //   if(window.innerWidth < 1000) {
-  //     console.log('se crea la app');
-  //     document.addEventListener('click', handleAnywhereClick)
-  //   }
-  // }, [])
-
   return (
     <div className="App">
       <Routes>

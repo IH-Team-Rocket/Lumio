@@ -15,7 +15,6 @@ export const SidebarContextProvider = ({ children }) => {
 
   return (
     <SidebarContext.Provider value={values}>
-      {console.log('isSidebarOpen:', isSidebarOpen)}
       {children}
     </SidebarContext.Provider>
   )

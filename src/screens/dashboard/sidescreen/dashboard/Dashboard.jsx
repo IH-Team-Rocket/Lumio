@@ -23,7 +23,6 @@ const Dashboard = () => {
   const [ chartFilter, setChartFilter ] = useState(-12)
   const [ city, setCity] = useState()
   
-  console.log(chartFilter);
   const handleTotal = () =>{
     setChartFilter(0)
   }
@@ -50,7 +49,6 @@ const Dashboard = () => {
         return bills.filter(bill => bill.contract.id === contractSelected) 
       })
       .then(filteredBills => {
-        console.log('dis bills:', filteredBills);
         setData(filteredBills.slice(chartFilter))
       })
       .catch(err => console.error(err))
@@ -71,7 +69,6 @@ const Dashboard = () => {
     .catch(err => console.error(err))
   }, [contractSelected])
 
-  console.log(city);
 
   return data[0] ? (
 

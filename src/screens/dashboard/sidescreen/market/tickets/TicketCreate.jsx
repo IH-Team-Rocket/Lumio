@@ -29,7 +29,6 @@ function TicketCreate() {
             .then(user => {
                 getPanelContracts(user)
                     .then(contracts => {
-                        console.log(contracts);
                         return contracts.map(contract => {
                             return {
                                 value: contract.id,
