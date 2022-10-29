@@ -49,7 +49,6 @@ function TicketCreate() {
     const navigate = useNavigate()
 
     function onSubmit() {
-        console.log(values)
         createTicket(values)
             .then(ticket => {
                 navigate('/market')
