@@ -47,9 +47,11 @@ const Dashboard = () => {
   useEffect(() => {
     getBills()
       .then(bills => {
-        //bills.filter(bill => bill.contract === contractSelected.id)
-        console.log(bills);
-        setData(bills.slice(chartFilter))
+        return bills.filter(bill => bill.contract.id === contractSelected) 
+      })
+      .then(filteredBills => {
+        console.log('dis bills:', filteredBills);
+        setData(filteredBills.slice(chartFilter))
       })
       .catch(err => console.error(err))
   }, [chartFilter, contractSelected])

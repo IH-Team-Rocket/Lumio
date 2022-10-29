@@ -47,9 +47,6 @@ const WeatherWidget = ({city}) => {
     setContract(event.target.value);
   };
  */
-
-  console.log(weather);
-
   useEffect(() => {
 		getNowcast(city)
 			.then(result => {
