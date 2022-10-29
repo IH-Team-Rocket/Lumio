@@ -1,10 +1,27 @@
+.dashboard-container {
+  padding: 0 20px;
+}
+
 .dashboard-content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  .first-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .second-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
 
 .power-used-chart {
-  width: 40%;
+  width: 46%;
   min-width: 300px;
+}
+
+.weather-container {
+  width: 46%;
 }
