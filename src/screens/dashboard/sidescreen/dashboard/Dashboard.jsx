@@ -62,10 +62,6 @@ const Dashboard = () => {
             chartType="area"
           />
         </div>
-
-        <div>
-
-        </div>
       </div>
     </div>) : (
       <p>Loading...</p>

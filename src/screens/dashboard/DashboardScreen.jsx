@@ -24,8 +24,14 @@ const DashboardScreen = () => {
         <TopBar/>
         <div className='sidescreen-content'>
           <Routes>
+
+            {/* DASHBOARD */}
+
             <Route path="/" element={<Dashboard />}/>
             {/* <Route path="/billing" element={}/> */}
+
+            {/* TICKETS */}
+
             <Route path="/market" element={<Market />}/>
             <Route path="/tickets/create" element={<TicketCreate/>}/>
 
