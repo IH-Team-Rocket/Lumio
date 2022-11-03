@@ -2,7 +2,6 @@ import React from 'react';
 
 const ContractSelect = ({contracts, contractSelected, setContractSelected}) => {
   const handleChange = event => {
-    console.log(event.target.value);
     setContractSelected(event.target.value);
   };
 

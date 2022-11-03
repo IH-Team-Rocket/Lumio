@@ -29,7 +29,6 @@ function TicketCreate() {
             .then(user => {
                 getPanelContracts(user)
                     .then(contracts => {
-                        console.log(contracts);
                         return contracts.map(contract => {
                             return {
                                 value: contract.id,
@@ -108,6 +107,30 @@ function TicketCreate() {
                     value={values.quantity}
                     onChange={handleChange}
                     error={errors.quantity}
+                    onBlur={handleBlur}
+                />
+
+                <Input
+                    type='date'
+                    label='Starting Date'
+                    placeholder='ni idea'
+                    name="startDate"
+                    id="startDate"
+                    value={values.startDate}
+                    onChange={handleChange}
+                    error={errors.startDate}
+                    onBlur={handleBlur}
+                />
+
+                <Input
+                    type='date'
+                    label='Ending Date'
+                    placeholder='ni idea'
+                    name="endDate"
+                    id="endDate"
+                    value={values.endDate}
+                    onChange={handleChange}
+                    error={errors.endDate}
                     onBlur={handleBlur}
                 />
 

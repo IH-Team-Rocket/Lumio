@@ -23,12 +23,15 @@ const Dashboard = () => {
   const [ chartFilter, setChartFilter ] = useState(-12)
   const [ city, setCity] = useState()
   
-  console.log(chartFilter);
   const handleTotal = () =>{
     setChartFilter(0)
   }
   const handleYearly = () => {
     setChartFilter(-12)
+  }
+  
+  const sortFunction = (a , b) => {
+    return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
   }
 
   useEffect(() => {
@@ -47,9 +50,10 @@ const Dashboard = () => {
   useEffect(() => {
     getBills()
       .then(bills => {
-        //bills.filter(bill => bill.contract === contractSelected.id)
-        console.log(bills);
-        setData(bills.slice(chartFilter))
+        return bills.filter(bill => bill.contract.id === contractSelected).sort(sortFunction)
+      })
+      .then(filteredBills => {
+        setData(filteredBills.slice(chartFilter))
       })
       .catch(err => console.error(err))
   }, [chartFilter, contractSelected])
@@ -69,7 +73,6 @@ const Dashboard = () => {
     .catch(err => console.error(err))
   }, [contractSelected])
 
-  console.log(city);
 
   return data[0] ? (
 

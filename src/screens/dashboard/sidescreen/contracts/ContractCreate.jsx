@@ -27,10 +27,8 @@ function ContractCreate() {
     const navigate = useNavigate()
 
     function onSubmit(values) {
-        console.log('entro');
         createContract(values)
             .then(contract => {
-                console.log(contract);
                 navigate(`/contracts/${contract.id}`)
             })
             .catch(err => {
