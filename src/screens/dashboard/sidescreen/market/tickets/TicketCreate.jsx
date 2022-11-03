@@ -110,6 +110,30 @@ function TicketCreate() {
                     onBlur={handleBlur}
                 />
 
+                <Input
+                    type='date'
+                    label='Starting Date'
+                    placeholder='ni idea'
+                    name="startDate"
+                    id="startDate"
+                    value={values.startDate}
+                    onChange={handleChange}
+                    error={errors.startDate}
+                    onBlur={handleBlur}
+                />
+
+                <Input
+                    type='date'
+                    label='Ending Date'
+                    placeholder='ni idea'
+                    name="endDate"
+                    id="endDate"
+                    value={values.endDate}
+                    onChange={handleChange}
+                    error={errors.endDate}
+                    onBlur={handleBlur}
+                />
+
                 <button type="submit" disabled={isSubmitting}>
                     {isSubmitting ? 'Loading' : 'Submit'}
                 </button>
