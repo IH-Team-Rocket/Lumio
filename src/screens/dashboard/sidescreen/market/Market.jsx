@@ -16,17 +16,40 @@ const Market = () => {
       }, []);
 
   return (
-    <div>
+    <div className='market-container'>
       <div className='sidescreen-title'>
         <h2 className='dashboard-title'>Tickets</h2>
 
         <Link to={"/tickets/create"}><TbCirclePlus className='title-icon'/></Link>
       </div>
-      {tickets.map((ticket) => (
-        <div  key={ticket.id}>
-          <Ticket ticket={ticket}/>
+      <div className='market'>
+        <div className='tickets'>
+          {tickets.map((ticket) => (
+          <div  key={ticket.id}>
+            <Ticket ticket={ticket}/>
+          </div>
+              ))}
         </div>
-            ))}
+        <div className='map-container'>
+          <div className='map'>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+            <p>MAP</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
