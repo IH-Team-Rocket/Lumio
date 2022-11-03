@@ -29,6 +29,10 @@ const Dashboard = () => {
   const handleYearly = () => {
     setChartFilter(-12)
   }
+  
+  const sortFunction = (a , b) => {
+    return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+  }
 
   useEffect(() => {
     getCurrentUser()
@@ -46,7 +50,7 @@ const Dashboard = () => {
   useEffect(() => {
     getBills()
       .then(bills => {
-        return bills.filter(bill => bill.contract.id === contractSelected) 
+        return bills.filter(bill => bill.contract.id === contractSelected).sort(sortFunction)
       })
       .then(filteredBills => {
         setData(filteredBills.slice(chartFilter))
