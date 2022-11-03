@@ -3,7 +3,7 @@ function Input({
   onChange, value, id, name, error, onBlur
 }) {
   return (
-    <div className="mb-3">
+    <div className="input">
       <label htmlFor={id} className="form-label">
         {label}
       </label>
@@ -13,6 +13,7 @@ function Input({
         onChange={onChange} value={value}
         name={name} onBlur={onBlur}
       />
+      
       {error && (
         <div className="invalid-feedback">
           {error}

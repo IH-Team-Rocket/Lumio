@@ -4,6 +4,7 @@ import Ticket from '../../../../components/ticket/Ticket';
 import { TbCirclePlus } from 'react-icons/tb'
 import "./Market.scss"
 import { Link } from 'react-router-dom';
+import Map from '../../../../components/Map/Map';
 
 const Market = () => {
   const [ tickets, setTickets ] = useState([])
@@ -32,21 +33,7 @@ const Market = () => {
         </div>
         <div className='map-container'>
           <div className='map'>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
-            <p>MAP</p>
+            <Map />
           </div>
         </div>
       </div>
