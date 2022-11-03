@@ -6,6 +6,7 @@ import WeatherWidget from '../../../../components/weather/WeatherWidget';
 import ContractSelect from '../../../../components/misc/contract-select/ContractSelect';
 import { getCurrentUser } from '../../../../services/UserService';
 import { getContract, getContracts } from '../../../../services/ContractService';
+import { toast } from 'react-toastify';
 
 const Dashboard = () => {
   const toMonthName= (monthNumber) => {
@@ -73,6 +74,10 @@ const Dashboard = () => {
     .catch(err => console.error(err))
   }, [contractSelected])
 
+  const createToast = function () {
+    toast.success("This is a toast")
+  }
+
 
   return data[0] ? (
 
@@ -108,7 +113,7 @@ const Dashboard = () => {
         </div>
         <div className='second-row'>
           <div className='chart-container'>
-            <p>A</p>
+            <button onClick={createToast}>Press me!</button>
           </div>
           <div className='weather-container'>
             <WeatherWidget city={city} contractSelected={contractSelected}/>
