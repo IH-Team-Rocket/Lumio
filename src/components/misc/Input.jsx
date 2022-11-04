@@ -3,13 +3,13 @@ function Input({
   onChange, value, id, name, error, onBlur
 }) {
   return (
-    <div className="input">
+    <div className="form-input">
       <label htmlFor={id} className="form-label">
         {label}
       </label>
       <input
         type={type} className={`form-control ${error ? 'is-invalid' : ''}`}
-        id={id} placeholder={placeholder}
+        id={id}
         onChange={onChange} value={value}
         name={name} onBlur={onBlur}
       />

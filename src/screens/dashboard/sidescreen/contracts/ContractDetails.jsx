@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getContract } from '../../../../services/ContractService';
 import './ContractDetails.scss'
+import { ProgressBar } from 'react-loader-spinner';
 
 const ContractDetails = () => {
   const [ contract, setContract ] = useState(null)
@@ -28,7 +29,18 @@ const ContractDetails = () => {
             <p>{contract.createdAt}</p>
         </div>
     ) : (
-      <p>Loading...</p>
+      <div className='loader-container'>
+
+        <ProgressBar
+          height="80"
+          width="80"
+          ariaLabel="progress-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass="progress-bar-wrapper"
+          borderColor = '#020E31'
+          barColor = '#FF9600'
+        />
+      </div>
     );
 };
 
