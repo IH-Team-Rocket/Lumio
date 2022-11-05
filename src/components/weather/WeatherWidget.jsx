@@ -10,7 +10,7 @@ const WeatherWidget = ({city}) => {
 		getNowcast(city)
 			.then(result => {
 				if(city){
-					if(result.forecast[0].cloudiness > 50) {
+					if(result.forecast[0].cloudiness > -1) {
 						toast.warn("Parece que en las siguente 3 horas, va a estar nublado", {
 							position: toast.POSITION.BOTTOM_RIGHT,
 							hideProgressBar: true,

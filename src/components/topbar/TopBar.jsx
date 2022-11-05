@@ -1,6 +1,6 @@
 import React from 'react';
 import './TopBar.scss'
-import { MdMenu, MdSettings, /* MdNotificationsNone, */ MdAccountCircle } from 'react-icons/md';
+import { MdMenu, MdSettings, MdAccountCircle } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useSidebarContext } from '../../contexts/SidebarContext';
 import NotificationsWidget from './notifications/NotificationsWidget';
