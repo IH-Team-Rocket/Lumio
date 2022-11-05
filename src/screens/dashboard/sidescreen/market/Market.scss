@@ -1,0 +1,21 @@
+.market {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.tickets {
+  width: 50%;
+  min-width: 300px;
+
+}
+
+.map-container {
+  width: 50%;
+  background-color: green;
+}
+
+.map {
+  width: 50%;
+  position: fixed;
+}

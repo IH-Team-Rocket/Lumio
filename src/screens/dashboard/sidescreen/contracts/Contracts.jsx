@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { getContracts } from '../../../../services/ContractService';
+import { getContract, getContracts } from '../../../../services/ContractService';
 import './Contracts.scss'
-import Contract from '../../../../components/contract/Contract';
 import { TbCirclePlus } from 'react-icons/tb'
 import { Link } from 'react-router-dom';
+import ContractSelect from '../../../../components/misc/contract-select/ContractSelect';
+import { getCurrentUser } from '../../../../services/UserService';
+import ContractDetails from './ContractDetails';
 
 const Contracts = () => {
   const [ contracts, setContracts ] = useState([])
+  const [ contractSelected, setContractSelected] = useState()
+  const [ contract, setContract ] = useState(null)
 
   useEffect(() => {
     getContracts()
@@ -15,15 +19,40 @@ const Contracts = () => {
     })
   }, [])
 
+  useEffect(() => {
+    getCurrentUser()
+      .then(user => {
+        getContracts(user)
+          .then(contractsFetched => {
+            setContracts(contractsFetched)
+						setContractSelected(contractsFetched[0].id);
+          })
+          .catch(err => console.error(err))
+      })
+      .catch(err => console.error(err))
+  }, [])
+
+  useEffect(() => {
+    if(contractSelected) {
+      getContract(contractSelected)
+        .then(contract => {
+          setContract(contract)
+        })
+    }
+  }, [contractSelected])
+
   return contracts ? (
     <div>
       <div className="sidescreen-title">
         <h2 className='dashboard-title'>My Contracts</h2>
         <Link to={"/contracts/create"}><TbCirclePlus className='title-icon'/></Link>
       </div>
-      {contracts.map((contract) => (
-        <Contract contract={contract} key={contract.id} to={`/contracts/${contract.id}`}/>
-      ))}
+      <ContractSelect
+          contracts={contracts}
+          contractSelected={contractSelected}
+          setContractSelected={setContractSelected}
+        />
+      <ContractDetails contract={contract} />
     </div>
   ) : (
     <p>Loading...</p>

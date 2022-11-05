@@ -10,11 +10,11 @@ import { SidebarContextProvider } from './contexts/SidebarContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( 
   <AuthContextProvider>
-    <SidebarContextProvider>
-      <Router>
+    <Router>
+      <SidebarContextProvider>
         <App />
-      </Router>
-    </SidebarContextProvider>
+      </SidebarContextProvider>
+    </Router>
   </AuthContextProvider>
 );
 

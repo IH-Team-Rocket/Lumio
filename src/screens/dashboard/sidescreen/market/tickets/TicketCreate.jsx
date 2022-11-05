@@ -6,6 +6,7 @@ import { getPanelContracts } from '../../../../../services/ContractService';
 import { createTicket } from '../../../../../services/TicketService';
 import { getCurrentUser } from '../../../../../services/UserService';
 import TicketSchema from './TicketSchema';
+import {ProgressBar} from  'react-loader-spinner'
 
 const INITIAL_VALUES = {
     price: "",
@@ -140,7 +141,18 @@ function TicketCreate() {
             </form>
         </div>
     ) : (
-        <p> Loading... </p>
+        <div className='loader-container'>
+
+        <ProgressBar
+          height="80"
+          width="80"
+          ariaLabel="progress-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass="progress-bar-wrapper"
+          borderColor = '#020E31'
+          barColor = '#FF9600'
+        />
+      </div>
     );
 
 }

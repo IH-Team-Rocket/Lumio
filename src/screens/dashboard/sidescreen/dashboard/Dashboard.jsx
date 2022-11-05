@@ -6,6 +6,7 @@ import WeatherWidget from '../../../../components/weather/WeatherWidget';
 import ContractSelect from '../../../../components/misc/contract-select/ContractSelect';
 import { getCurrentUser } from '../../../../services/UserService';
 import { getContract, getContracts } from '../../../../services/ContractService';
+import { ProgressBar } from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 
 const Dashboard = () => {
@@ -121,7 +122,18 @@ const Dashboard = () => {
         </div>
       </div>
     </div> ) : (
-      <p>Loading...</p>
+      <div className='loader-container'>
+
+        <ProgressBar
+          height="80"
+          width="80"
+          ariaLabel="progress-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass="progress-bar-wrapper"
+          borderColor = '#020E31'
+          barColor = '#FF9600'
+        />
+      </div>
   );
 };
 
