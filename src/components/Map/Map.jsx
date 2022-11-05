@@ -3,8 +3,6 @@ import GoogleMapReact from 'google-map-react'
 
 const Map = () => {
 
-  console.log('entro');
-
   return (
     <div>
       <GoogleMapReact>

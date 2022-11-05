@@ -16,7 +16,6 @@ export const SidebarContextProvider = ({ children }) => {
   useEffect(() => {
     const content = document.querySelector('.sidescreen-content')
     document.addEventListener('click', function(e) {
-      console.log(e.target);
       if (content.contains(e.target)) {
         setIsSidebarOpen(false)
       }
