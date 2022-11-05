@@ -4,7 +4,7 @@ function Input({
 }) {
   return (
     <div className="form-input">
-      <label htmlFor={id} className="form-label">
+      <label htmlFor={id} className={`form-label ${value && 'label-valid'}`}>
         {label}
       </label>
       <input

@@ -72,7 +72,7 @@ function Login() {
             onBlur={handleBlur}
           />
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit">
             {isSubmitting ? 'Loading' : 'Login'}
           </button>
         </form>

@@ -29,7 +29,7 @@ function ContractCreate() {
     function onSubmit(values) {
         createContract(values)
             .then(contract => {
-                navigate(`/contracts/${contract.id}`)
+                navigate('/contracts')
             })
             .catch(err => {
                 console.log(err.response.data);

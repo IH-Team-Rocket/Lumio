@@ -4,16 +4,8 @@ import { getContract } from '../../../../services/ContractService';
 import './ContractDetails.scss'
 import { ProgressBar } from 'react-loader-spinner';
 
-const ContractDetails = () => {
-  const [ contract, setContract ] = useState(null)
-  const { id } = useParams()
-
-  useEffect(() => {
-    getContract(id)
-      .then(contract => {
-        setContract(contract)
-      })
-  }, [id])
+const ContractDetails = ({contract}) => {
+  
 
     return contract ? (
         <div className='contract-detail-container'>
