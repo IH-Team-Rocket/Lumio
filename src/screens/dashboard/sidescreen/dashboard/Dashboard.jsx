@@ -14,7 +14,7 @@ const Dashboard = () => {
     date.setMonth(monthNumber - 1);
   
     return date.toLocaleString('en-US', {
-      month: 'long',
+      month: 'short',
     });
   }
 
@@ -62,6 +62,20 @@ const Dashboard = () => {
   const powerUsed = data.map(bill => {
     return bill.powerUsed
   })
+  const powerGenerated = data.map(bill => {
+    return bill.powerGenerated
+  }).filter(data => data)
+
+  const powerSold = data.map(bill => {
+    return bill.powerSold
+  }).filter(data => data)
+  
+  const powerSoldData = [powerSold, []]
+
+  const chartData = [powerUsed, powerGenerated]
+  
+  console.log(powerSoldData);
+
   const month = data.map(bill => {
     return toMonthName(bill.createdAt.split('-').slice(1,-1).toString())
   })
@@ -87,6 +101,22 @@ const Dashboard = () => {
         />
         <div className='first-row'>
           <div className="power-used-chart">
+            <div className='title'>
+              <h3 className='chart-title'>Consumption</h3>
+              <div className='controls'>
+                <button onClick={handleYearly}>Yearly</button>
+                <button onClick={handleTotal}>Total</button>
+              </div>
+            </div>
+            <DashboardChart 
+              data={chartData}
+              xName={month}
+              chartType="area"
+              contractSelected={contractSelected}
+              height="300px"
+            />
+          </div>
+          {/* <div className="power-used-chart">
             <button onClick={handleYearly}>Yearly</button>
             <button onClick={handleTotal}>Total</button>
             <DashboardChart 
@@ -95,21 +125,21 @@ const Dashboard = () => {
               chartType="area"
               contractSelected={contractSelected}
             />
-          </div>
-          <div className="power-used-chart">
-            <button onClick={handleYearly}>Yearly</button>
-            <button onClick={handleTotal}>Total</button>
-            <DashboardChart 
-              data={powerUsed}
-              xName={month}
-              chartType="area"
-              contractSelected={contractSelected}
-            />
-          </div>
+          </div> */}
         </div>
         <div className='second-row'>
           <div className='chart-container'>
-            <p>A</p>
+          {powerSoldData[0].length ? 
+            <DashboardChart
+              data={powerSoldData}
+              xName={month}
+              chartType="bar"
+              contractSelected={contractSelected}
+              height="300px"
+            />
+          :
+          <p>A</p>
+          }
           </div>
           <div className='weather-container'>
             <WeatherWidget city={city} contractSelected={contractSelected}/>
