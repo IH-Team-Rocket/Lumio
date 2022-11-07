@@ -16,7 +16,7 @@ const Ticket = ({ticket}) => {
 	const [ options, setOptions ] = useState([])
 
     const {
-        values, _, isSubmitting, setSubmitting, setFieldError, handleSubmit, handleChange, handleBlur,
+        values, isSubmitting, setSubmitting, setFieldError, handleSubmit, handleChange, handleBlur,
     } = useFormik({
         initialValues: INITIAL_VALUES,
         onSubmit: onSubmit,
