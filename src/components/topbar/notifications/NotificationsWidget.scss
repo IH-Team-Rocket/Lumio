@@ -3,12 +3,29 @@
     border-color: grey;
     border-style: double;
     background-color: white;
+
+   
+}
+
+.empty-content {
+    right: 60px;
+    left: auto !important;
 }
 
 .notification {
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
     &:hover {
         color: #3d3d3d;
         box-shadow: 10px rgba(0,0,0,1)
     }
+}
+
+.notificationButton { 
+    all: unset
+}
+
+.noNotifications {
+    padding: 15px;
 }
