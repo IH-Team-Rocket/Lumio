@@ -37,7 +37,16 @@ const DashboardChart = (props) => {
               show: false
           }
       }
-  },
+    },
+    legend: {
+      show: true,
+      onItemClick: {
+        toggleDataSeries: false
+      },
+      onItemHover: {
+          highlightDataSeries: false
+      },
+    },
     xaxis: {
       categories: props.xName,
       labels: {
