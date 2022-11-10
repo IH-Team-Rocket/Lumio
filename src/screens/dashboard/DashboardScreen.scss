@@ -56,12 +56,23 @@ $sidebar-width: 300px;
     .sidescreen-content {
         height: 82vh;
         overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
+    
 }
 
 .sidescreen-content {
     height: 82vh;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .sidescreen-title {

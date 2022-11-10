@@ -1,6 +1,6 @@
 .ticket-container {
   background-color: white;
-  border-radius: 10px;
+  border-radius: 6px;
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -35,4 +35,23 @@
 
 .ticket-info p {
   margin: 0 0 10px;
+}
+
+.modal-container {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.1);
+    .modal {
+      width: 50%;
+      height: 50%;
+      background-color: aliceblue;
+      border-radius: 6px;
+    }
 }

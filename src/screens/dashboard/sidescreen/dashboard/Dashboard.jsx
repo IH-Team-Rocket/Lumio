@@ -6,6 +6,7 @@ import WeatherWidget from '../../../../components/weather/WeatherWidget';
 import ContractSelect from '../../../../components/misc/contract-select/ContractSelect';
 import { getCurrentUser } from '../../../../services/UserService';
 import { getContract, getContracts } from '../../../../services/ContractService';
+import { ProgressBar } from 'react-loader-spinner';
 
 const Dashboard = () => {
   const toMonthName= (monthNumber) => {
@@ -13,7 +14,7 @@ const Dashboard = () => {
     date.setMonth(monthNumber - 1);
   
     return date.toLocaleString('en-US', {
-      month: 'long',
+      month: 'short',
     });
   }
 
@@ -61,6 +62,20 @@ const Dashboard = () => {
   const powerUsed = data.map(bill => {
     return bill.powerUsed
   })
+  const powerGenerated = data.map(bill => {
+    return bill.powerGenerated
+  }).filter(data => data)
+
+  const powerSold = data.map(bill => {
+    return bill.powerSold
+  }).filter(data => data)
+  
+  const powerSoldData = [powerSold, []]
+
+  const chartData = [powerUsed, powerGenerated]
+  
+  console.log(powerSoldData);
+
   const month = data.map(bill => {
     return toMonthName(bill.createdAt.split('-').slice(1,-1).toString())
   })
@@ -86,29 +101,35 @@ const Dashboard = () => {
         />
         <div className='first-row'>
           <div className="power-used-chart">
-            <button onClick={handleYearly}>Yearly</button>
-            <button onClick={handleTotal}>Total</button>
+            <div className='title'>
+              <h3 className='chart-title'>Consumption</h3>
+              <div className='controls'>
+                <button onClick={handleYearly}>Yearly</button>
+                <button onClick={handleTotal}>Total</button>
+              </div>
+            </div>
             <DashboardChart 
-              data={powerUsed}
+              data={chartData}
               xName={month}
               chartType="area"
               contractSelected={contractSelected}
-            />
-          </div>
-          <div className="power-used-chart">
-            <button onClick={handleYearly}>Yearly</button>
-            <button onClick={handleTotal}>Total</button>
-            <DashboardChart 
-              data={powerUsed}
-              xName={month}
-              chartType="area"
-              contractSelected={contractSelected}
+              height="300px"
             />
           </div>
         </div>
         <div className='second-row'>
           <div className='chart-container'>
-            <p>A</p>
+          {powerSoldData[0].length ? 
+            <DashboardChart
+              data={powerSoldData}
+              xName={month}
+              chartType="bar"
+              contractSelected={contractSelected}
+              height="300px"
+            />
+          :
+          <p>A</p>
+          }
           </div>
           <div className='weather-container'>
             <WeatherWidget city={city} contractSelected={contractSelected}/>
@@ -116,7 +137,18 @@ const Dashboard = () => {
         </div>
       </div>
     </div> ) : (
-      <p>Loading...</p>
+      <div className='loader-container'>
+
+        <ProgressBar
+          height="80"
+          width="80"
+          ariaLabel="progress-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass="progress-bar-wrapper"
+          borderColor = '#020E31'
+          barColor = '#FF9600'
+        />
+      </div>
   );
 };
 

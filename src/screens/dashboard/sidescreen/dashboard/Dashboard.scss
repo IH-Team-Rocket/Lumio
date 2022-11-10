@@ -8,6 +8,31 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+      .power-used-chart {
+        margin-top: 10px;
+        width: 100%;
+        min-width: 300px;
+        background-color: white;
+        padding: 0px 26px 0 16px;
+          .title{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+              .chart-title{
+                text-decoration: underline;
+              }
+              .controls {
+                button {
+                  border: none;
+                  padding: 6px 20px;
+                  background-color: darkblue;
+                  margin-left: 10px;
+                  border-radius: 6px;
+                  color: white;
+                }
+              }
+          }
+      }
   }
   .second-row {
     display: flex;
@@ -17,10 +42,7 @@
   }
 }
 
-.power-used-chart {
-  width: 46%;
-  min-width: 300px;
-}
+
 
 .weather-container {
   width: 46%;
