@@ -27,7 +27,6 @@ const ContractDetails = ({contract}) => {
       <p>{contract.powerPerPanel}</p>
       <p>{contract.user}</p>
       <p>{contract.createdAt}</p>
-      <p>POWERUSED: {bills[0].powerUsed}</p>
 
     </div>
   ) : (
