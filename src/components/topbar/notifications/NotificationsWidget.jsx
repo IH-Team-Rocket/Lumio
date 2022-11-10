@@ -20,7 +20,7 @@ const NotificationsWidget = () => {
       on='hover'
       mouseLeaveDelay={150}
       mouseEnterDelay={50}
-      contentStyle={{ padding: '15px', border: 'red'}}
+      contentStyle={{ padding: '15px', border: 'red' }}
       >
       {notifications.length ? 
         <div className='notifications'>
@@ -35,7 +35,7 @@ const NotificationsWidget = () => {
           })}
         </div>
       : <div className='notifications'>
-          <MdNotificationsOff className='noNotifications' />
+          <p className='notification'>You have no notifications!</p>
         </div>}
       </Popup>
     </div>
