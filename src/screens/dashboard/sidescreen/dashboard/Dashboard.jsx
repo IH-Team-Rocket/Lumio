@@ -116,16 +116,6 @@ const Dashboard = () => {
               height="300px"
             />
           </div>
-          {/* <div className="power-used-chart">
-            <button onClick={handleYearly}>Yearly</button>
-            <button onClick={handleTotal}>Total</button>
-            <DashboardChart 
-              data={powerUsed}
-              xName={month}
-              chartType="area"
-              contractSelected={contractSelected}
-            />
-          </div> */}
         </div>
         <div className='second-row'>
           <div className='chart-container'>

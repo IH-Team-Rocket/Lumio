@@ -1,14 +1,10 @@
-import React, { useEffect,useLayoutEffect,useRef, useState } from 'react';
+import React, { useEffect,useRef, useState } from 'react';
 import Map , { Marker } from 'react-map-gl';
-
 import { getTickets } from '../../services/TicketService';
-import mapboxgl from 'mapbox-gl';
 import './TicketMap.scss'
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 
-/* Lat:{ticket.sellingUserContract.location.pointer[0]} */
-/* Lon:{ticket.sellingUserContract.location.pointer[1]} */
 
 const TicketMap = () => {
   const [pointers, setPointers] = useState([])
@@ -22,9 +18,6 @@ const TicketMap = () => {
       .catch(err => console.error(err))
   }, []);
 
-  
-
-  console.log()
 
   return (
     <Map
@@ -33,21 +26,24 @@ const TicketMap = () => {
     initialViewState={{
       longitude: -3.70256,
       latitude: 39.80099,
-      zoom: 4.7
+      zoom: 4.7,
+      maxZoom: 13
     }}
-    style={{width: 600, height: 400}}
-    mapStyle="mapbox://styles/mapbox/streets-v9"
+    style={{
+      width: 500,
+      height: 400,
+    }}
+    mapStyle="mapbox://styles/elroms/clab0n7m7000s14p33m43j48q"
   >
   { pointers.map((pointer, i) => {
         
        return(
         <Marker
           key={i}
-          anchor="bottom"
           latitude={pointer[0]}
           longitude={pointer[1]}
         >
-          <img alt="" src="https://img.icons8.com/color/48/000000/marker.png" />
+          <img alt="marker" src="marker.png" />
         </Marker>
        )
       })}
