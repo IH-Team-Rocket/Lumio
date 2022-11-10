@@ -3,7 +3,7 @@ import { getAccessToken, logout } from "../store/AccessTokenStore";
 
 const createHttp = (useAccessToken = false) => {
   const http = axios.create({
-    baseURL: "hhttps://cute-erin-llama-tutu.cyclic.app/api",
+    baseURL: "https://cute-erin-llama-tutu.cyclic.app/api",
   });
 
   http.interceptors.request.use((request) => {
