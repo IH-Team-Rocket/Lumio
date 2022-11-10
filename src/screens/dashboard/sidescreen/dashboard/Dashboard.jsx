@@ -26,6 +26,8 @@ const Dashboard = () => {
   const [ city, setCity] = useState()
   const [ tickets, setTickets ] = useState()
 
+  console.log(tickets);
+
   
   
   const handleTotal = () =>{
@@ -68,7 +70,7 @@ const Dashboard = () => {
       .then(tickets => {
         console.log(tickets);
         console.log("CONTRACT",contractSelected);
-        return tickets.filter(ticket => ticket.sellingUserContract === contractSelected)
+        return tickets.filter(ticket => ticket.sellingUserContract.id === contractSelected)
       })
       .then(filteredTickets => {
         setTickets(filteredTickets)
@@ -147,6 +149,7 @@ const Dashboard = () => {
               />
             </div>
             <div className='weather-container'>
+              <p>Algo</p>
               {tickets?.map(ticket => {
                 return <div key={ticket.id}>ALGO{ticket.id}</div> 
               })}
