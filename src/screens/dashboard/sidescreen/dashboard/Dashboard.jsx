@@ -68,7 +68,7 @@ const Dashboard = () => {
       .then(tickets => {
         console.log(tickets);
         console.log("CONTRACT",contractSelected);
-        return tickets.filter(ticket => ticket.sellingUserContract.id === contractSelected)
+        return tickets.filter(ticket => ticket.sellingUserContract === contractSelected)
       })
       .then(filteredTickets => {
         setTickets(filteredTickets)
