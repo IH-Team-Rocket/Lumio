@@ -8,13 +8,14 @@ import TicketMap from '../../../../components/TicketMap/TicketMap';
 
 const Market = () => {
   const [ tickets, setTickets ] = useState([])
-
+  
     useEffect(() => {
         getTickets()
           .then(tickets => {
             setTickets(tickets)
           })
       }, []);
+
 
   return (
     <div className='market-container'>

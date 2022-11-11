@@ -23,9 +23,6 @@ const Ticket = ({ticket}) => {
 /*         validationSchema: BuyTicketSchema
  */    })
 
-		console.log(values);
-
-
     useEffect(() => {
         getCurrentUser()
             .then(user => {
