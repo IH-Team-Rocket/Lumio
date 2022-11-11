@@ -6,7 +6,7 @@ const DashboardChart = (props) => {
 
   const series = [{
     type: "area",
-    name: "Power used",
+    name: props.seriesName,
     data: props.data[0]
   },
   ...(props.data[1].length ? (

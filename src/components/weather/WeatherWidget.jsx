@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { toast, Flip } from 'react-toastify';
 import { getNowcast } from '../../services/WeatherService';
+import './WeatherWidget.scss'
 
 const WeatherWidget = ({city}) => {
 
@@ -33,7 +34,7 @@ const WeatherWidget = ({city}) => {
     
 
   return (
-    <div>      
+    <div className='weather-card'>      
       <p>{weather[0]?.symbolPhrase}</p>
       <p>Temp: {weather[0]?.temperature}º</p>
 			<p>Cloudiness: {weather[0]?.cloudiness}</p>

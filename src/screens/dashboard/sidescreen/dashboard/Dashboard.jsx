@@ -7,6 +7,7 @@ import ContractSelect from '../../../../components/misc/contract-select/Contract
 import { getCurrentUser } from '../../../../services/UserService';
 import { getContract, getContracts } from '../../../../services/ContractService';
 import { ProgressBar } from 'react-loader-spinner';
+import { getTickets } from '../../../../services/TicketService';
 import { toast } from 'react-toastify';
 
 const Dashboard = () => {
@@ -24,6 +25,11 @@ const Dashboard = () => {
   const [ data, setData ] = useState([])
   const [ chartFilter, setChartFilter ] = useState(-12)
   const [ city, setCity] = useState()
+  const [ tickets, setTickets ] = useState()
+
+  console.log(tickets);
+
+  
   
   const handleTotal = () =>{
     setChartFilter(0)
@@ -60,6 +66,19 @@ const Dashboard = () => {
       .catch(err => console.error(err))
   }, [chartFilter, contractSelected])
 
+  useEffect(() => {
+    getTickets()
+      .then(tickets => {
+        console.log(tickets);
+        console.log("CONTRACT",contractSelected);
+        return tickets.filter(ticket => ticket.sellingUserContract.id === contractSelected)
+      })
+      .then(filteredTickets => {
+        setTickets(filteredTickets)
+      })
+      .catch(err => console.error(err))
+  }, [contractSelected]);
+
   const powerUsed = data.map(bill => {
     return bill.powerUsed
   })
@@ -75,7 +94,6 @@ const Dashboard = () => {
 
   const chartData = [powerUsed, powerGenerated]
   
-  console.log(powerSoldData);
 
   const month = data.map(bill => {
     return toMonthName(bill.createdAt.split('-').slice(1,-1).toString())
@@ -88,10 +106,6 @@ const Dashboard = () => {
     })
     .catch(err => console.error(err))
   }, [contractSelected])
-
-  const createToast = function () {
-    toast.success("This is a toast")
-  }
 
 
   return data[0] ? (
@@ -114,6 +128,7 @@ const Dashboard = () => {
               </div>
             </div>
             <DashboardChart 
+              seriesName="Power Used"
               data={chartData}
               xName={month}
               chartType="area"
@@ -121,25 +136,43 @@ const Dashboard = () => {
               height="300px"
             />
           </div>
-          {/* <div className="power-used-chart">
-            <button onClick={handleYearly}>Yearly</button>
-            <button onClick={handleTotal}>Total</button>
-            <DashboardChart 
-              data={powerUsed}
-              xName={month}
-              chartType="area"
-              contractSelected={contractSelected}
-            />
-          </div> */}
         </div>
-        <div className='second-row'>
-          <div className='chart-container'>
-            <button onClick={createToast}>Press me!</button>
+        {powerSoldData[0].length ?
+          <div className='second-row'>
+            <div className='chart-container'>
+              <DashboardChart
+                seriesName="Power Sold"
+                data={powerSoldData}
+                xName={month}
+                chartType="area"
+                contractSelected={contractSelected}
+                height="300px"
+              />
+            </div>
+            <div className='weather-container'>
+              <p>Algo</p>
+              {tickets?.map(ticket => {
+                return <div key={ticket.id}>ALGO{ticket.id}</div> 
+              })}
+            </div>
           </div>
-          <div className='weather-container'>
-            <WeatherWidget city={city} contractSelected={contractSelected}/>
+        :
+          <div className='second-row'>
+            <div>
+              Take a look at our marketplace!
+            </div>
+            <div className='weather-container'>
+              <WeatherWidget city={city} contractSelected={contractSelected}/>
+            </div>
           </div>
-        </div>
+        }
+        {powerSoldData[0].length ?
+          <div className='third-row'>
+
+          </div>
+        :
+          <div></div>
+        }
       </div>
     </div> ) : (
       <div className='loader-container'>
