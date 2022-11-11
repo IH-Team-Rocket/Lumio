@@ -10,7 +10,7 @@ import { ProgressBar } from 'react-loader-spinner';
 import { getTickets } from '../../../../services/TicketService';
 
 const Dashboard = () => {
-  const toMonthName= (monthNumber) => {
+  const toMonthName = (monthNumber) => {
     const date = new Date();
     date.setMonth(monthNumber - 1);
   
