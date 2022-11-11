@@ -27,6 +27,8 @@ const Dashboard = () => {
   const [ city, setCity] = useState()
   const [ tickets, setTickets ] = useState()
 
+  console.log(tickets);
+
   
   
   const handleTotal = () =>{
@@ -105,10 +107,6 @@ const Dashboard = () => {
     .catch(err => console.error(err))
   }, [contractSelected])
 
-  const createToast = function () {
-    toast.success("This is a toast")
-  }
-
 
   return data[0] ? (
 
@@ -139,19 +137,24 @@ const Dashboard = () => {
             />
           </div>
         </div>
-        <div className='second-row'>
-          <div className='chart-container'>
-          {powerSoldData[0].length ? 
-            <DashboardChart
-              data={powerSoldData}
-              xName={month}
-              chartType="bar"
-              contractSelected={contractSelected}
-              height="300px"
-            />
-          :
-          <p>A</p>
-          }
+        {powerSoldData[0].length ?
+          <div className='second-row'>
+            <div className='chart-container'>
+              <DashboardChart
+                seriesName="Power Sold"
+                data={powerSoldData}
+                xName={month}
+                chartType="area"
+                contractSelected={contractSelected}
+                height="300px"
+              />
+            </div>
+            <div className='weather-container'>
+              <p>Algo</p>
+              {tickets?.map(ticket => {
+                return <div key={ticket.id}>ALGO{ticket.id}</div> 
+              })}
+            </div>
           </div>
         :
           <div className='second-row'>
